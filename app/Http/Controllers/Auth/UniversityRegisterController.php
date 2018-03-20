@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Storage;
 class UniversityRegisterController extends Controller
 {
     /*
@@ -50,8 +50,15 @@ class UniversityRegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:universities',
             'password' => 'required|string|min:6|confirmed',
+            'decree' => 'required|string|unique:universities',
+            'address' => 'required|string',
+            'country' => 'required|string',
+            'website' => 'required|string',
+            'phone' => 'required|string',
+            'desc' => 'required|string',
+            'photo' => 'required|file',
         ]);
     }
 
@@ -63,10 +70,18 @@ class UniversityRegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $path = Storage::disk('public')->put('avatar/university/', $data['photo']);
         return University::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'decree' => $data['decree'],
+            'address' => $data['address'],
+            'country' => $data['country'],
+            'website' => $data['website'],
+            'phone' => $data['phone'],
+            'desc' => $data['desc'],
+            'photo' => $path,
         ]);
     }
 }
