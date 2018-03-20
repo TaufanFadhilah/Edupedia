@@ -18,6 +18,13 @@ class CreateUniversitiesTable extends Migration
           $table->string('name');
           $table->string('email')->unique();
           $table->string('password');
+          $table->string('decree');
+          $table->text('address');
+          $table->string('country');
+          $table->string('website');
+          $table->string('phone');
+          $table->text('desc');
+          $table->string('photo')->default('avatar/university/default.png');
           $table->rememberToken();
           $table->timestamps();
         });

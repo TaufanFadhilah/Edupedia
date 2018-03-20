@@ -18,6 +18,10 @@ class CreateDonorsTable extends Migration
           $table->string('name');
           $table->string('email')->unique();
           $table->string('password');
+          $table->text('address');
+          $table->text('desc')->nullable();
+          $table->string('website')->nullable();
+          $table->string('photo')->default('avatar/donor/default.png');
           $table->rememberToken();
           $table->timestamps();
         });
