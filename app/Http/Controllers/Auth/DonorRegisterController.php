@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Storage;
 class DonorRegisterController extends Controller
 {
     /*
@@ -52,6 +52,10 @@ class DonorRegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'address' => 'required|string',
+            'desc' => 'string',
+            'website' => 'string',
+            'photo' => 'required|file',
         ]);
     }
 
@@ -63,10 +67,15 @@ class DonorRegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $path = Storage::disk('public')->put('avatar/donor/', $data['photo']);
         return Donor::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'address' => $data['address'],
+            'desc' => $data['desc'],
+            'website' => $data['website'],
+            'photo' => $data['photo'],
         ]);
     }
 }
