@@ -4,7 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-
+use Illuminate\Auth\AuthenticationException;
 class Handler extends ExceptionHandler
 {
     /**
@@ -58,18 +58,18 @@ class Handler extends ExceptionHandler
         }
         $guard = array_get($exception->guards(), 0);
         switch ($guard) {
-       case 'admin':
-            $login = 'admin.login';
-            break;
-        case 'university':
-            $login = 'university.login';
-            break;
-        case 'donor':
-            $login = 'donor.login';
-            break;
-        default:
-            $login = 'login';
-            break;
+         case 'admin':
+              $login = 'admin.login';
+              break;
+          case 'university':
+              $login = 'university.login';
+              break;
+          case 'donor':
+              $login = 'donor.login';
+              break;
+          default:
+              $login = 'login';
+              break;
         }
         return redirect()->guest(route($login));
     }
