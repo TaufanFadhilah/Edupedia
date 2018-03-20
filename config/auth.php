@@ -55,7 +55,6 @@ return [
             'driver' => 'token',
             'provider' => 'admins',
         ],
-
         'university' => [
             'driver' => 'session',
             'provider' => 'universities',
@@ -63,6 +62,14 @@ return [
         'university-api' => [
             'driver' => 'token',
             'provider' => 'universities',
+        ],
+        'donor' => [
+            'driver' => 'session',
+            'provider' => 'donors',
+        ],
+        'donor-api' => [
+            'driver' => 'token',
+            'provider' => 'donors',
         ],
     ],
 
@@ -93,7 +100,7 @@ return [
             'model' => App\Admin::class,
         ],
 
-        'univerties' => [
+        'universities' => [
             'driver' => 'eloquent',
             'model' => App\University::class,
         ],
