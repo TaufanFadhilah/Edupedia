@@ -43,8 +43,8 @@ Route::prefix('donor')->group(function() {
     // START AUTH
    Route::get('/login','Auth\DonorLoginController@showLoginForm')->name('donor.login');
    Route::post('/login', 'Auth\DonorLoginController@login')->name('donor.login.submit');
-   Route::get('/register','Auth\DonorLoginController@showLoginForm')->name('donor.login');
-   Route::post('/register', 'Auth\DonorLoginController@login')->name('donor.login.submit');
+   Route::get('/register','Auth\DonorLoginController@showRegisterForm')->name('donor.register');
+   Route::post('/register', 'Auth\DonorRegisterController@register')->name('donor.register.submit');
    Route::get('logout/', 'Auth\DonorLoginController@logout')->name('donor.logout');
    Route::get('/', 'DonorController@index')->name('donor.dashboard');
    // END AUTH

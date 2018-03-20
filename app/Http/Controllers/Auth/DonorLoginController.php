@@ -20,6 +20,11 @@ class DonorLoginController extends Controller
       return view('auth.donor.login');
     }
 
+    public function showRegisterForm()
+    {
+      return view('auth.donor.register');
+    }
+
     public function login(Request $request)
     {
       // Validate the form data

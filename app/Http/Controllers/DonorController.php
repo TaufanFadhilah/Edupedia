@@ -10,7 +10,7 @@ class DonorController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:university');
+        $this->middleware('auth:donor');
     }
     /**
      * show dashboard.
@@ -19,6 +19,6 @@ class DonorController extends Controller
      */
     public function index()
     {
-        return view('university.dashboard');
+        return view('donor.dashboard');
     }
 }
