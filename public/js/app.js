@@ -34983,7 +34983,7 @@ window.Vue = __webpack_require__(175);
 Vue.component('example-component', __webpack_require__(178));
 
 var app = new Vue({
-  el: '#app'
+  el: '#vue'
 });
 
 /***/ }),
