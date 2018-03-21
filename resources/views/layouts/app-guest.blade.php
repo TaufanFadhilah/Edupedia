@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app()->getLocale() }}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Dashboard</title>
-
+    <title>Wujudkan Mimpimu</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <style>
       #loader {
         transition: all 0.3s ease-in-out;
@@ -21,6 +22,8 @@
         opacity: 0;
         visibility: hidden;
       }
+
+
 
       .spinner {
         width: 40px;
@@ -53,6 +56,7 @@
         }
       }
     </style>
+    @stack('style')
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
   </head>
   <body class="app">
@@ -84,26 +88,27 @@
         }, 300);
       });
     </script>
+  <!-- #Main ============================ -->
+    @include('layouts.navbar-guest')
 
-    <!-- @App Content -->
-    <!-- =================================================== -->
-    <div>
-      @guest
-        @include('layouts.navbar-guest')
-      @else
-          @include('layouts.navbar')
-      @endguest
-      <div class="">
-        <h4>Landing Page</h4>
+    <!-- ### $App Screen Content ### -->
+    <main class='main-content bgc-grey-100'>
+      <div id='mainContent'>
+        <div class="container">
+          @yield('content')
+        </div>
       </div>
-      <!-- ### $App Screen Footer ### -->
-      <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
-        <span>Copyright © 2018 Designed by <a href="https://showup.id" target='_blank'>Show Up dev team</a>. All rights reserved.</span>
-      </footer>
-    </div>
-    <script src="{{asset('js/index.js')}}" charset="utf-8"></script>
+    </main>
+
+    <!-- ### $App Screen Footer ### -->
+    <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
+      <span>Copyright © 2018 Designed by <a href="https://showup.id" target='_blank' title="Colorlib">Show Up!@Dev</a>. All rights reserved.</span>
+    </footer>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/index.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    @stack('scripts')
   </body>
 </html>
