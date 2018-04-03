@@ -106,7 +106,7 @@
                             <label for="website" class="col-md-4 col-form-label text-md-right">{{ __('Website') }}</label>
 
                             <div class="col-md-6">
-                                <input id="website" type="text" class="form-control{{ $errors->has('website') ? ' is-invalid' : '' }}" name="website" value="{{ old('website') }}" required autofocus>
+                                <input id="website" type="url" class="form-control{{ $errors->has('website') ? ' is-invalid' : '' }}" name="website" value="{{ old('website') }}" required autofocus>
 
                                 @if ($errors->has('website'))
                                     <span class="invalid-feedback">
