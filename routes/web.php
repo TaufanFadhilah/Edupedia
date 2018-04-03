@@ -37,6 +37,9 @@ Route::prefix('university')->group(function() {
    Route::get('logout/', 'Auth\UniversityLoginController@logout')->name('university.logout');
    Route::get('/', 'UniversityController@index')->name('university.dashboard');
    // END AUTH
+   // START PROFILE
+   Route::get('profile','UniversityController@edit')->name('university.edit');
+   // END PROFILE
 });
 
 Route::prefix('donor')->group(function() {

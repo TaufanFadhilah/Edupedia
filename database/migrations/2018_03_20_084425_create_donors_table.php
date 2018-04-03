@@ -22,6 +22,7 @@ class CreateDonorsTable extends Migration
           $table->text('desc')->nullable();
           $table->string('website')->nullable();
           $table->string('photo')->default('avatar/donor/default.png');
+          $table->string('status')->default('donor');
           $table->rememberToken();
           $table->timestamps();
         });

@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->integer('score')->default(0);
             $table->enum('gender',['male','female']);
             $table->string('photo')->default('avatar/applicant/default.png');
+            $table->string('status')->default('applicant');
             $table->rememberToken();
             $table->timestamps();
         });

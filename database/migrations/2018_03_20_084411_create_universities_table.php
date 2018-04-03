@@ -25,6 +25,7 @@ class CreateUniversitiesTable extends Migration
           $table->string('phone');
           $table->text('desc');
           $table->string('photo')->default('avatar/university/default.png');
+          $table->string('status')->default('university');
           $table->rememberToken();
           $table->timestamps();
         });
