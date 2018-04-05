@@ -70,7 +70,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $path = Storage::disk('public')->put('avatar/applicant/', $data['photo']);
+        $path = Storage::disk('public')->put('avatar/applicant', $data['photo']);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

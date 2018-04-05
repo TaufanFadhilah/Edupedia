@@ -49,6 +49,7 @@ class UniversityController extends Controller
       $university->photo = $path;
       $university->save();
 
+      $request->session()->flash('status', 'Rubah password berhasil');
       return redirect(route('university.edit'));
     }
 

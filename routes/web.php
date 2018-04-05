@@ -53,4 +53,9 @@ Route::prefix('donor')->group(function() {
    Route::get('logout/', 'Auth\DonorLoginController@logout')->name('donor.logout');
    Route::get('/', 'DonorController@index')->name('donor.dashboard');
    // END AUTH
+   // START PROFILE
+   Route::get('profile','DonorController@edit')->name('donor.edit');
+   Route::put('profile/{donor}','DonorController@update')->name('donor.update');
+   Route::post('profile/password/{donor}','DonorController@updatePassword')->name('donor.password.update');
+   // END PROFILE
 });

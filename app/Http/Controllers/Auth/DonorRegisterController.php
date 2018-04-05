@@ -67,7 +67,7 @@ class DonorRegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $path = Storage::disk('public')->put('avatar/donor/', $data['photo']);
+        $path = Storage::disk('public')->put('avatar/donor', $data['photo']);
         return Donor::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -75,7 +75,7 @@ class DonorRegisterController extends Controller
             'address' => $data['address'],
             'desc' => $data['desc'],
             'website' => $data['website'],
-            'photo' => $data['photo'],
+            'photo' => $path,
         ]);
     }
 }

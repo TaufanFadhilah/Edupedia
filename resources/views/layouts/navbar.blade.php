@@ -195,6 +195,11 @@
                 <i class="ti-user mR-10"></i>
                 <span>Profile</span>
               </a>
+            @elseif (Auth::user()->status == 'donor')
+              <a href="{{route('donor.edit')}}" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                <i class="ti-user mR-10"></i>
+                <span>Profile</span>
+              </a>
             @endif
           </li>
           <li>
