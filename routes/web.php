@@ -39,6 +39,8 @@ Route::prefix('university')->group(function() {
    // END AUTH
    // START PROFILE
    Route::get('profile','UniversityController@edit')->name('university.edit');
+   Route::put('profile/{university}','UniversityController@update')->name('university.update');
+   Route::post('profile/password/{university}','UniversityController@updatePassword')->name('university.password.update');
    // END PROFILE
 });
 

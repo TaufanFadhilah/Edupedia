@@ -182,7 +182,7 @@
       <li class="dropdown">
         <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
           <div class="peer mR-10">
-            <img class="w-2r bdrs-50p" src="{{asset('storage/'.Auth::user()->photo)}}" alt="">
+            <img class="w-2r bdrs-50p" style="max-height: 30px" src="{{asset('storage/'.Auth::user()->photo)}}" alt="">
           </div>
           <div class="peer">
             <span class="fsz-sm c-grey-900">{{ str_before(Auth::user()->name, ' ') }}</span>
@@ -190,10 +190,12 @@
         </a>
         <ul class="dropdown-menu fsz-sm">
           <li>
-            <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-              <i class="ti-user mR-10"></i>
-              <span>Profile</span>
-            </a>
+            @if (Auth::user()->status == 'university')
+              <a href="{{route('university.edit')}}" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                <i class="ti-user mR-10"></i>
+                <span>Profile</span>
+              </a>
+            @endif
           </li>
           <li>
             <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">

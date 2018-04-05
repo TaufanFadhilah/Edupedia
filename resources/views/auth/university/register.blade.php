@@ -148,7 +148,7 @@
 
                           <div class="col-md-6">
                             <div class="custom-file">
-                              <input type="file" name="photo" class="custom-file-input" id="customFile">
+                              <input type="file" name="photo" class="custom-file-input" id="customFile" required>
                               <label class="custom-file-label" for="customFile">Pilih foto</label>
                             </div>
 

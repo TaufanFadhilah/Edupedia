@@ -70,7 +70,7 @@ class UniversityRegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $path = Storage::disk('public')->put('avatar/university/', $data['photo']);
+        $path = Storage::disk('public')->put('avatar/university', $data['photo']);
         return University::create([
             'name' => $data['name'],
             'email' => $data['email'],

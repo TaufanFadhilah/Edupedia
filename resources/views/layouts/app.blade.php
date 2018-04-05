@@ -108,9 +108,9 @@
         </main>
 
         <!-- ### $App Screen Footer ### -->
-        <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
+        {{-- <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
           <span>Copyright © 2018 Designed by <a href="https://showup.id" target='_blank' title="Colorlib">Show Up!@Dev</a>.</span>
-        </footer>
+        </footer> --}}
       </div>
     </div>
 
