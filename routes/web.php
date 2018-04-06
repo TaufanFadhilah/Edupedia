@@ -19,6 +19,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// APPLICANT ROUTE START
+Route::get('profile','ApplicantController@edit')->name('applicant.edit');
+Route::put('profile/{user}','ApplicantController@update')->name('applicant.update');
+Route::post('profile/password/{user}','ApplicantController@updatePassword')->name('applicant.password.update');
+// APPLICANT ROUTE END
+
 Route::prefix('admin')->group(function() {
     // START AUTH
    Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
